@@ -1,0 +1,24 @@
+Ytica chrome extension API version 2.1.0
+----------------------------------------
+
+The api allows you to setup chrome Ytica extension.
+
+Include Ytica extension API to your page:
+
+<script src="yapi.js"></script>
+
+---
+* Ytica.set_id(yticaid, function callback)
+
+yticaid - Ytica ID structure. Only account_id and agent_id keys are allowed.
+callback(res) - function called when set_id() finishes.
+    Argument passed to the callback function is a structure which describes the result of the call.
+
+    res.success - true if the call was successfull.
+    res.error_message - contains error_message in case of error
+    res.code - contains error code to identify particular error.
+             It could be:
+             404 - the extension is not installed
+             500 - Unknown error, it seems to be a bug in extension.
+
+    If you see the 500 error, please contact Ytica support.

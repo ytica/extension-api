@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Set YExtension userID</title>
+    <script src="yapi.js"></script>
+    <script>
+        function set_agent_id() {
+            let yticaid = document.querySelector("#yticaid").value;
+            try {
+                let extid = document.location.hash.replace("#", "");
+                if (extid.length > 30) {
+                    Ytica.YTICA_EXTENSION_ID = extid;
+                }
+                Ytica.set_external_agent_id(yticaid);
+            } catch(err) {
+                console.error(err);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        AgentID: <input id="yticaid">
+    </div>
+    <button onclick="set_agent_id();">Set AgentId</button>
+</body>
+</html>
+
